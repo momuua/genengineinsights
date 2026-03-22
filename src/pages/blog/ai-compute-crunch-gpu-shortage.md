@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: "AI Compute Crunch: Why Tech Companies Are Stockpiling GPUs"
 description: "The rapid rise of AI large models has triggered a global compute crunch. This article explains what's driving the GPU shortage, who is most affected, and whether the situation will improve."
-pubDate: 2026-03-22
+pubDate: "2026-03-22"
 slug: ai-compute-crunch-gpu-shortage
 author: GEN Engine Insights
 tags: [AI, GPU, Computing, Semiconductors, Technology]
