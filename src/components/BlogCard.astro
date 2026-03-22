@@ -1,0 +1,57 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  pubDate: Date;
+  tags?: string[];
+  image?: string;
+}
+
+const { title, description, slug, pubDate, tags = [], image } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200 flex flex-col">
+  {image && (
+    <div class="aspect-video overflow-hidden bg-gray-100">
+      <img src={image} alt={title} class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+    </div>
+  )}
+  
+  <div class="p-6 flex flex-col flex-1">
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        {tags.slice(0, 3).map(tag => (
+          <span class="inline-block bg-primary-50 text-primary-700 text-xs font-medium px-2 py-0.5 rounded-full border border-primary-100">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+    
+    <h2 class="text-xl font-bold text-gray-900 mb-2 hover:text-primary-600 transition-colors">
+      <a href={'/blog/' + slug}>{title}</a>
+    </h2>
+    
+    <p class="text-gray-600 text-sm leading-relaxed flex-1 mb-4">{description}</p>
+    
+    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+      <time datetime={pubDate.toISOString()} class="text-xs text-gray-500">{formattedDate}</time>
+      <a 
+        href={'/blog/' + slug}
+        class="text-sm font-medium text-primary-600 hover:text-primary-800 flex items-center gap-1"
+      >
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>
