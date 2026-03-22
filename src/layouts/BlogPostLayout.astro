@@ -4,8 +4,8 @@ import BaseLayout from './BaseLayout.astro';
 export interface Props {
   title: string;
   description: string;
-  pubDate: Date;
-  updatedDate?: Date;
+  pubDate: Date | string;
+  updatedDate?: Date | string;
   author?: string;
   tags?: string[];
   image?: string;
@@ -13,7 +13,10 @@ export interface Props {
 
 const { title, description, pubDate, updatedDate, author = 'GEN Engine Insights', tags = [], image } = Astro.props;
 
-const formattedDate = pubDate.toLocaleDateString('en-US', {
+const pubDateObj = pubDate instanceof Date ? pubDate : new Date(pubDate);
+const updatedDateObj = updatedDate ? (updatedDate instanceof Date ? updatedDate : new Date(updatedDate)) : undefined;
+
+const formattedDate = pubDateObj.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -37,11 +40,11 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
       <div class="flex items-center text-sm text-gray-500 gap-4">
         <span>By {author}</span>
         <span>·</span>
-        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
-        {updatedDate && (
+        <time datetime={pubDateObj.toISOString()}>{formattedDate}</time>
+        {updatedDateObj && (
           <>
             <span>·</span>
-            <span>Updated {updatedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span>Updated {updatedDateObj.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
           </>
         )}
       </div>
