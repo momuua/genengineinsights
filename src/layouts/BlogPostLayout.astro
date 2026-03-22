@@ -13,8 +13,8 @@ export interface Props {
 
 const { title, description, pubDate, updatedDate, author = 'GEN Engine Insights', tags = [], image } = Astro.props;
 
-const pubDateObj = pubDate instanceof Date ? pubDate : new Date(pubDate);
-const updatedDateObj = updatedDate ? (updatedDate instanceof Date ? updatedDate : new Date(updatedDate)) : undefined;
+const pubDateObj = new Date(String(pubDate));
+const updatedDateObj = updatedDate ? new Date(String(updatedDate)) : undefined;
 
 const formattedDate = pubDateObj.toLocaleDateString('en-US', {
   year: 'numeric',
