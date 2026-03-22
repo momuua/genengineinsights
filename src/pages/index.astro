@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const allPosts = await Astro.glob('./blog/*.md');
+const recentPosts = allPosts
+  .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout 
+  title="GEN Engine Insights - AI Search Engine Optimization"
+  description="Expert strategies and insights for optimizing your content in the era of AI-powered search engines. Master GEO and get discovered by ChatGPT, Perplexity, and more."
+>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-24 text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+        </span>
+        The Future of Search is Here
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        Win the <span class="text-yellow-300">AI Search</span> Revolution
+      </h1>
+      
+      <p class="text-xl text-primary-100 max-w-3xl mx-auto mb-10 leading-relaxed">
+        As AI engines like ChatGPT, Perplexity, and Claude reshape how people find information, 
+        learn the strategies to make your content visible in this new landscape.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/blog" 
+          class="bg-white text-primary-700 hover:bg-primary-50 font-semibold px-8 py-3.5 rounded-xl transition-colors shadow-lg hover:shadow-xl"
+        >
+          Read the Blog
+        </a>
+        <a 
+          href="/about" 
+          class="bg-white/10 hover:bg-white/20 border border-white/30 font-semibold px-8 py-3.5 rounded-xl transition-colors"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-primary-700 mb-1">40%</div>
+          <div class="text-sm text-gray-600">of Gen Z use AI for search</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary-700 mb-1">100M+</div>
+          <div class="text-sm text-gray-600">ChatGPT users</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary-700 mb-1">0</div>
+          <div class="text-sm text-gray-600">clicks in zero-click results</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-primary-700 mb-1">2025</div>
+          <div class="text-sm text-gray-600">Year GEO became critical</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Posts -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between mb-10">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900">Latest Insights</h2>
+        <p class="text-gray-600 mt-1">Stay ahead of the AI search curve</p>
+      </div>
+      <a href="/blog" class="hidden sm:flex items-center gap-1 text-primary-600 hover:text-primary-800 font-medium text-sm">
+        View all posts
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {recentPosts.map(post => (
+        <BlogCard
+          title={post.frontmatter.title}
+          description={post.frontmatter.description}
+          slug={post.frontmatter.slug || post.file.split('/').pop()?.replace('.md', '')}
+          pubDate={new Date(post.frontmatter.pubDate)}
+          tags={post.frontmatter.tags}
+          image={post.frontmatter.image}
+        />
+      ))}
+    </div>
+    
+    <div class="text-center mt-10 sm:hidden">
+      <a href="/blog" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-800 font-medium">
+        View all posts
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary-50 border-y border-primary-100">
+    <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+      <h2 class="text-3xl font-bold text-primary-900 mb-4">Ready to Master AI Search?</h2>
+      <p class="text-primary-700 text-lg mb-8">
+        Explore our in-depth guides and strategies for getting your content found in the AI era.
+      </p>
+      <a 
+        href="/blog"
+        class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors shadow-md hover:shadow-lg"
+      >
+        Start Reading
+      </a>
+    </div>
+  </section>
+</BaseLayout>
