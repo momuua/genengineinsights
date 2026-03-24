@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPostLayout.astro
 title: "How to Optimize robots.txt for AI Web Crawlers in 2025"
 description: "A practical guide to configuring robots.txt to ensure AI search engines like GPTBot, ClaudeBot, and PerplexityBot can crawl and index your content."
 pubDate: 2025-01-22
