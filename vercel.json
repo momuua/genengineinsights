@@ -2,5 +2,33 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "astro"
+  "framework": "astro",
+  "redirects": [
+    {
+      "source": "/articles/ai-compute-crunch-gpu-shortage",
+      "destination": "/blog/ai-compute-crunch-gpu-shortage",
+      "permanent": true
+    },
+    {
+      "source": "/articles/ai-compute-crunch-gpu-shortage/",
+      "destination": "/blog/ai-compute-crunch-gpu-shortage",
+      "permanent": true
+    }
+  ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
