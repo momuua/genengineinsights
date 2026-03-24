@@ -2,16 +2,27 @@
 import BaseLayout from './BaseLayout.astro';
 
 export interface Props {
-  title: string;
-  description: string;
-  pubDate: any;
-  updatedDate?: any;
-  author?: string;
-  tags?: string[];
-  image?: string;
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: any;
+    updatedDate?: any;
+    author?: string;
+    tags?: string[];
+    image?: string;
+  };
 }
 
-const { title, description, pubDate, updatedDate, author = 'GEN Engine Insights', tags = [], image } = Astro.props;
+const { frontmatter } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  author = 'GEN Engine Insights',
+  tags = [],
+  image,
+} = frontmatter;
 
 function formatDate(val: any): string {
   try {
@@ -35,9 +46,31 @@ function toISOSafe(val: any): string {
 
 const formattedDate = formatDate(pubDate);
 const isoDate = toISOSafe(pubDate);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": isoDate,
+  "dateModified": updatedDate ? toISOSafe(updatedDate) : isoDate,
+  "author": {
+    "@type": "Organization",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GEN Engine Insights",
+    "url": "https://www.genengineinsights.com"
+  },
+  "url": canonicalURL.toString(),
+  "keywords": tags.join(', ')
+};
 ---
 
 <BaseLayout title={title + ' | GEN Engine Insights'} description={description} image={image}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="max-w-4xl mx-auto px-4 py-12">
     <header class="mb-8">
       {tags.length > 0 && (
@@ -65,3 +98,94 @@ const isoDate = toISOSafe(pubDate);
     </div>
   </article>
 </BaseLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
