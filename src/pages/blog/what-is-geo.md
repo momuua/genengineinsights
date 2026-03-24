@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/BlogPostLayout.astro
 title: "What is Generative Engine Optimization (GEO)? A Complete Guide"
 description: "Learn what GEO is, why it matters, and how to start optimizing your content for AI-powered search engines like ChatGPT, Perplexity, and Google SGE."
 pubDate: 2025-01-15
