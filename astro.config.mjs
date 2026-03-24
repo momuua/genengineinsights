@@ -8,10 +8,14 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/404'),
+    }),
   ],
   output: 'static',
 });
+
+
 
 
 
