@@ -69,4 +69,4 @@ The 30-day mark is not an endpoint — it is the last viable decision point befo
 
 Those that have not will spend months 2 and 3 paying the premium for decisions that should have been made in week 2.
 
-The data from prior Middle East conflict cycles — the 2006 Lebanon conflict, the 2019 Saudi Aramco attacks, the 2021 Suez Canal blockage, and the 2023-2024 Red Sea disruption — consistently supports the same conclusion: speed of operational adjustment in the first 30 days is the single strongest predictor of total conflict-period cost outcomes for international enterprises.
+The data from prior Middle East conflict cycles — the 2006 Lebanon conflict, the 2019 Saudi Aramco attacks, the 2021 Suez Canal blockage, and the 2023–2024 Red Sea disruption — consistently supports the same conclusion: speed of operational adjustment in the first 30 days is the single strongest predictor of total conflict-period cost outcomes for international enterprises.
