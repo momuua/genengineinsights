@@ -1,7 +1,7 @@
 ---
 title: "Middle East Business Operations: 30-Day Conflict Impact Assessment for Global Enterprises"
 description: "A data-driven assessment of how 30 days of Middle East conflict reshapes international business operations, supply chains, and risk strategies for global enterprises."
-pubDate: 2025-03-30
+pubDate: "2026-03-30"
 author: "GEI Editorial"
 tags: ["middle-east", "business-risk", "supply-chain", "geopolitical-risk", "global-operations"]
 draft: false
