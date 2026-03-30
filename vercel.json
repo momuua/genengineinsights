@@ -6,12 +6,12 @@
   "redirects": [
     {
       "source": "/articles/ai-compute-crunch-gpu-shortage",
-      "destination": "/blog/ai-compute-crunch-gpu-shortage",
+      "destination": "/blog/ai-compute-crunch-gpu-shortage/",
       "permanent": true
     },
     {
       "source": "/articles/ai-compute-crunch-gpu-shortage/",
-      "destination": "/blog/ai-compute-crunch-gpu-shortage",
+      "destination": "/blog/ai-compute-crunch-gpu-shortage/",
       "permanent": true
     }
   ]
