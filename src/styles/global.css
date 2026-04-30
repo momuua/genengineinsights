@@ -72,6 +72,57 @@
 
 
 
+@layer components {
+  .prose p {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+  .prose p:first-child {
+    margin-top: 0;
+  }
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+  .prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .prose h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
